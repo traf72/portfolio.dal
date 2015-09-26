@@ -1,0 +1,1201 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="DalModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="DalModelStoreContainer">
+          <EntitySet Name="DependentOrganizations" EntityType="DalModel.Store.DependentOrganizations" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="DocumentCategories" EntityType="DalModel.Store.DocumentCategories" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Documents" EntityType="DalModel.Store.Documents" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="DocumentsDocumentCategories" EntityType="DalModel.Store.DocumentsDocumentCategories" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="DocumentTypes" EntityType="DalModel.Store.DocumentTypes" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Files" EntityType="DalModel.Store.Files" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="News" EntityType="DalModel.Store.News" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="NewsCategories" EntityType="DalModel.Store.NewsCategories" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="PhotoGalleries" EntityType="DalModel.Store.PhotoGalleries" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="PhotoGalleriesFiles" EntityType="DalModel.Store.PhotoGalleriesFiles" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="StaticContent" EntityType="DalModel.Store.StaticContent" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Users" EntityType="DalModel.Store.Users" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_DOCUMENT_DOCUMENTTYPES" Association="DalModel.Store.FK_DOCUMENT_DOCUMENTTYPES">
+            <End Role="DocumentTypes" EntitySet="DocumentTypes" />
+            <End Role="Documents" EntitySet="Documents" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DOCUMENT_USERS" Association="DalModel.Store.FK_DOCUMENT_USERS">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Documents" EntitySet="Documents" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DOCUMENTCATEGORIES_DOCUMENTCATEGORIES" Association="DalModel.Store.FK_DOCUMENTCATEGORIES_DOCUMENTCATEGORIES">
+            <End Role="DocumentCategories" EntitySet="DocumentCategories" />
+            <End Role="DocumentCategories1" EntitySet="DocumentCategories" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DOCUMENTS_FILES" Association="DalModel.Store.FK_DOCUMENTS_FILES">
+            <End Role="Files" EntitySet="Files" />
+            <End Role="Documents" EntitySet="Documents" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DOCUMENTSDOCUMENTCATEGORIES_DOCUMENTCATEGORIES" Association="DalModel.Store.FK_DOCUMENTSDOCUMENTCATEGORIES_DOCUMENTCATEGORIES">
+            <End Role="DocumentCategories" EntitySet="DocumentCategories" />
+            <End Role="DocumentsDocumentCategories" EntitySet="DocumentsDocumentCategories" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DOCUMENTSDOCUMENTCATEGORIES_DOCUMENTS" Association="DalModel.Store.FK_DOCUMENTSDOCUMENTCATEGORIES_DOCUMENTS">
+            <End Role="Documents" EntitySet="Documents" />
+            <End Role="DocumentsDocumentCategories" EntitySet="DocumentsDocumentCategories" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FILES_FILES" Association="DalModel.Store.FK_FILES_FILES">
+            <End Role="Files" EntitySet="Files" />
+            <End Role="Files1" EntitySet="Files" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FILES_USERS" Association="DalModel.Store.FK_FILES_USERS">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Files" EntitySet="Files" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NEWS_DEPENDENTORGANISATION" Association="DalModel.Store.FK_NEWS_DEPENDENTORGANISATION">
+            <End Role="DependentOrganizations" EntitySet="DependentOrganizations" />
+            <End Role="News" EntitySet="News" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NEWS_FILES_IMAGE" Association="DalModel.Store.FK_NEWS_FILES_IMAGE">
+            <End Role="Files" EntitySet="Files" />
+            <End Role="News" EntitySet="News" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NEWS_FILES_THUMBNAIL" Association="DalModel.Store.FK_NEWS_FILES_THUMBNAIL">
+            <End Role="Files" EntitySet="Files" />
+            <End Role="News" EntitySet="News" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NEWS_NEWSCATEGORIES" Association="DalModel.Store.FK_NEWS_NEWSCATEGORIES">
+            <End Role="NewsCategories" EntitySet="NewsCategories" />
+            <End Role="News" EntitySet="News" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NEWS_PHOTOGALLERIES" Association="DalModel.Store.FK_NEWS_PHOTOGALLERIES">
+            <End Role="PhotoGalleries" EntitySet="PhotoGalleries" />
+            <End Role="News" EntitySet="News" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NEWS_USERS" Association="DalModel.Store.FK_NEWS_USERS">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="News" EntitySet="News" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PHOTOGAL_REFERENCE_USERS" Association="DalModel.Store.FK_PHOTOGAL_REFERENCE_USERS">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="PhotoGalleries" EntitySet="PhotoGalleries" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PHOTOGALLERIES_FILES" Association="DalModel.Store.FK_PHOTOGALLERIES_FILES">
+            <End Role="Files" EntitySet="Files" />
+            <End Role="PhotoGalleries" EntitySet="PhotoGalleries" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PHOTOGALLERIES_FILES_FILE" Association="DalModel.Store.FK_PHOTOGALLERIES_FILES_FILE">
+            <End Role="Files" EntitySet="Files" />
+            <End Role="PhotoGalleriesFiles" EntitySet="PhotoGalleriesFiles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PHOTOGALLERIES_FILES_THUMBNAIL" Association="DalModel.Store.FK_PHOTOGALLERIES_FILES_THUMBNAIL">
+            <End Role="Files" EntitySet="Files" />
+            <End Role="PhotoGalleriesFiles" EntitySet="PhotoGalleriesFiles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PHOTOGALLERIES_PHOTOGALLERIESFILES" Association="DalModel.Store.FK_PHOTOGALLERIES_PHOTOGALLERIESFILES">
+            <End Role="PhotoGalleries" EntitySet="PhotoGalleries" />
+            <End Role="PhotoGalleriesFiles" EntitySet="PhotoGalleriesFiles" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="DependentOrganizations">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Code" Type="nvarchar" Nullable="false" MaxLength="2000" />
+          <Property Name="Title" Type="nvarchar" Nullable="false" MaxLength="2000" />
+        </EntityType>
+        <EntityType Name="DocumentCategories">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Code" Type="nvarchar" MaxLength="600" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="512" />
+          <Property Name="Order" Type="int" />
+          <Property Name="ParentId" Type="int" />
+          <Property Name="ShowDocTypeFilter" Type="bit" Nullable="false" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="StaticPageUrl" Type="nvarchar" MaxLength="1024" />
+        </EntityType>
+        <EntityType Name="Documents">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="CreateDate" Type="datetime" Nullable="false" />
+          <Property Name="UpdateDate" Type="datetime" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" />
+          <Property Name="TypeId" Type="int" />
+          <Property Name="Number" Type="nvarchar" MaxLength="64" />
+          <Property Name="DocumentDate" Type="datetime" />
+          <Property Name="IsPublished" Type="bit" Nullable="false" />
+          <Property Name="PublishDate" Type="datetime" />
+          <Property Name="FileId" Type="int" />
+          <Property Name="AuthorId" Type="int" Nullable="false" />
+          <Property Name="IsDeleted" Type="bit" Nullable="false" />
+          <Property Name="RevisionDate" Type="datetime" />
+          <Property Name="RevisionNumber" Type="nvarchar" MaxLength="32" />
+          <Property Name="RealDocumentDate" Type="datetime" StoreGeneratedPattern="Computed" />
+          <Property Name="IsExpired" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DocumentsDocumentCategories">
+          <Key>
+            <PropertyRef Name="DocumentId" />
+            <PropertyRef Name="DocumentCategoryId" />
+          </Key>
+          <Property Name="DocumentId" Type="int" Nullable="false" />
+          <Property Name="DocumentCategoryId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DocumentTypes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Code" Type="nvarchar" Nullable="false" MaxLength="300" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="256" />
+        </EntityType>
+        <EntityType Name="Files">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="CreateDate" Type="datetime" Nullable="false" />
+          <Property Name="UpdateDate" Type="datetime" Nullable="false" />
+          <Property Name="OriginalName" Type="nvarchar" Nullable="false" MaxLength="2000" />
+          <Property Name="Size" Type="bigint" />
+          <Property Name="MimeType" Type="nvarchar" MaxLength="512" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="ContainerId" Type="nvarchar" Nullable="false" MaxLength="128" />
+          <Property Name="NameInStorage" Type="nvarchar" Nullable="false" MaxLength="2048" />
+          <Property Name="ParentId" Type="int" />
+          <Property Name="AuthorId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="News">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="CreateDate" Type="datetime" Nullable="false" />
+          <Property Name="UpdateDate" Type="datetime" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="2000" />
+          <Property Name="Announcement" Type="nvarchar(max)" />
+          <Property Name="Text" Type="nvarchar(max)" />
+          <Property Name="IsPublished" Type="bit" Nullable="false" />
+          <Property Name="PublishDate" Type="datetime" />
+          <Property Name="ImageId" Type="int" />
+          <Property Name="AuthorId" Type="int" Nullable="false" />
+          <Property Name="ThumbnailId" Type="int" />
+          <Property Name="GalleryId" Type="int" />
+          <Property Name="IsDeleted" Type="bit" Nullable="false" />
+          <Property Name="ContainerId" Type="nvarchar" MaxLength="128" />
+          <Property Name="IsGalleryVisibleInGalleries" Type="bit" Nullable="false" />
+          <Property Name="PublishDateTo" Type="datetime" />
+          <Property Name="CategoryId" Type="int" />
+          <Property Name="IsPoster" Type="bit" Nullable="false" />
+          <Property Name="DependentOrganizationId" Type="int" />
+          <Property Name="IsImportant" Type="bit" Nullable="false" />
+          <Property Name="IsPublishInNews" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="NewsCategories">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="nvarchar" Nullable="false" MaxLength="2000" />
+          <Property Name="RecentTitle" Type="nvarchar" Nullable="false" MaxLength="2000" />
+          <Property Name="Url" Type="nvarchar" Nullable="false" MaxLength="2000" />
+          <Property Name="IsUse" Type="bit" Nullable="false" />
+          <Property Name="NewsPageSize" Type="int" Nullable="false" />
+          <Property Name="RecentNewsPageSize" Type="int" Nullable="false" />
+          <Property Name="ShortTitle" Type="nvarchar" MaxLength="2000" />
+        </EntityType>
+        <EntityType Name="PhotoGalleries">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="CreateDate" Type="datetime" Nullable="false" />
+          <Property Name="UpdateDate" Type="datetime" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="2000" />
+          <Property Name="IsPublished" Type="bit" Nullable="false" />
+          <Property Name="PublishDate" Type="datetime" />
+          <Property Name="AuthorId" Type="int" Nullable="false" />
+          <Property Name="ContainerId" Type="nvarchar" MaxLength="128" />
+          <Property Name="MainImageId" Type="int" />
+          <Property Name="IsDeleted" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PhotoGalleriesFiles">
+          <Key>
+            <PropertyRef Name="PhotoGalleryId" />
+            <PropertyRef Name="FileId" />
+          </Key>
+          <Property Name="PhotoGalleryId" Type="int" Nullable="false" />
+          <Property Name="FileId" Type="int" Nullable="false" />
+          <Property Name="ThumbnailId" Type="int" />
+          <Property Name="PhotoName" Type="nvarchar" MaxLength="500" />
+          <Property Name="OrderNumber" Type="int" />
+        </EntityType>
+        <EntityType Name="StaticContent">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="1024" />
+          <Property Name="Content" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Url" Type="nvarchar" Nullable="false" MaxLength="256" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="CreateDate" Type="datetime" Nullable="false" />
+          <Property Name="UpdateDate" Type="datetime" Nullable="false" />
+          <Property Name="Login" Type="nvarchar" Nullable="false" MaxLength="150" />
+          <Property Name="Name" Type="nvarchar" MaxLength="512" />
+          <Property Name="IsAdministrationEmployee" Type="bit" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_DOCUMENT_DOCUMENTTYPES">
+          <End Role="DocumentTypes" Type="DalModel.Store.DocumentTypes" Multiplicity="0..1" />
+          <End Role="Documents" Type="DalModel.Store.Documents" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DocumentTypes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Documents">
+              <PropertyRef Name="TypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DOCUMENT_USERS">
+          <End Role="Users" Type="DalModel.Store.Users" Multiplicity="1" />
+          <End Role="Documents" Type="DalModel.Store.Documents" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Documents">
+              <PropertyRef Name="AuthorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DOCUMENTCATEGORIES_DOCUMENTCATEGORIES">
+          <End Role="DocumentCategories" Type="DalModel.Store.DocumentCategories" Multiplicity="0..1" />
+          <End Role="DocumentCategories1" Type="DalModel.Store.DocumentCategories" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DocumentCategories">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DocumentCategories1">
+              <PropertyRef Name="ParentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DOCUMENTS_FILES">
+          <End Role="Files" Type="DalModel.Store.Files" Multiplicity="0..1" />
+          <End Role="Documents" Type="DalModel.Store.Documents" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Files">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Documents">
+              <PropertyRef Name="FileId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DOCUMENTSDOCUMENTCATEGORIES_DOCUMENTCATEGORIES">
+          <End Role="DocumentCategories" Type="DalModel.Store.DocumentCategories" Multiplicity="1" />
+          <End Role="DocumentsDocumentCategories" Type="DalModel.Store.DocumentsDocumentCategories" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DocumentCategories">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DocumentsDocumentCategories">
+              <PropertyRef Name="DocumentCategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DOCUMENTSDOCUMENTCATEGORIES_DOCUMENTS">
+          <End Role="Documents" Type="DalModel.Store.Documents" Multiplicity="1" />
+          <End Role="DocumentsDocumentCategories" Type="DalModel.Store.DocumentsDocumentCategories" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Documents">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DocumentsDocumentCategories">
+              <PropertyRef Name="DocumentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FILES_FILES">
+          <End Role="Files" Type="DalModel.Store.Files" Multiplicity="0..1" />
+          <End Role="Files1" Type="DalModel.Store.Files" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Files">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Files1">
+              <PropertyRef Name="ParentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FILES_USERS">
+          <End Role="Users" Type="DalModel.Store.Users" Multiplicity="1" />
+          <End Role="Files" Type="DalModel.Store.Files" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Files">
+              <PropertyRef Name="AuthorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NEWS_DEPENDENTORGANISATION">
+          <End Role="DependentOrganizations" Type="DalModel.Store.DependentOrganizations" Multiplicity="0..1" />
+          <End Role="News" Type="DalModel.Store.News" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DependentOrganizations">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="News">
+              <PropertyRef Name="DependentOrganizationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NEWS_FILES_IMAGE">
+          <End Role="Files" Type="DalModel.Store.Files" Multiplicity="0..1" />
+          <End Role="News" Type="DalModel.Store.News" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Files">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="News">
+              <PropertyRef Name="ImageId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NEWS_FILES_THUMBNAIL">
+          <End Role="Files" Type="DalModel.Store.Files" Multiplicity="0..1" />
+          <End Role="News" Type="DalModel.Store.News" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Files">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="News">
+              <PropertyRef Name="ThumbnailId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NEWS_NEWSCATEGORIES">
+          <End Role="NewsCategories" Type="DalModel.Store.NewsCategories" Multiplicity="0..1" />
+          <End Role="News" Type="DalModel.Store.News" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NewsCategories">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="News">
+              <PropertyRef Name="CategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NEWS_PHOTOGALLERIES">
+          <End Role="PhotoGalleries" Type="DalModel.Store.PhotoGalleries" Multiplicity="0..1" />
+          <End Role="News" Type="DalModel.Store.News" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PhotoGalleries">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="News">
+              <PropertyRef Name="GalleryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NEWS_USERS">
+          <End Role="Users" Type="DalModel.Store.Users" Multiplicity="1" />
+          <End Role="News" Type="DalModel.Store.News" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="News">
+              <PropertyRef Name="AuthorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PHOTOGAL_REFERENCE_USERS">
+          <End Role="Users" Type="DalModel.Store.Users" Multiplicity="1" />
+          <End Role="PhotoGalleries" Type="DalModel.Store.PhotoGalleries" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PhotoGalleries">
+              <PropertyRef Name="AuthorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PHOTOGALLERIES_FILES">
+          <End Role="Files" Type="DalModel.Store.Files" Multiplicity="0..1" />
+          <End Role="PhotoGalleries" Type="DalModel.Store.PhotoGalleries" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Files">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PhotoGalleries">
+              <PropertyRef Name="MainImageId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PHOTOGALLERIES_FILES_FILE">
+          <End Role="Files" Type="DalModel.Store.Files" Multiplicity="1" />
+          <End Role="PhotoGalleriesFiles" Type="DalModel.Store.PhotoGalleriesFiles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Files">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PhotoGalleriesFiles">
+              <PropertyRef Name="FileId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PHOTOGALLERIES_FILES_THUMBNAIL">
+          <End Role="Files" Type="DalModel.Store.Files" Multiplicity="0..1" />
+          <End Role="PhotoGalleriesFiles" Type="DalModel.Store.PhotoGalleriesFiles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Files">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PhotoGalleriesFiles">
+              <PropertyRef Name="ThumbnailId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PHOTOGALLERIES_PHOTOGALLERIESFILES">
+          <End Role="PhotoGalleries" Type="DalModel.Store.PhotoGalleries" Multiplicity="1" />
+          <End Role="PhotoGalleriesFiles" Type="DalModel.Store.PhotoGalleriesFiles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PhotoGalleries">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PhotoGalleriesFiles">
+              <PropertyRef Name="PhotoGalleryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="FullTextSearch" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="searchString" Type="nvarchar" Mode="In" />
+          <Parameter Name="orderBy" Type="nvarchar" Mode="In" />
+          <Parameter Name="skip" Type="int" Mode="In" />
+          <Parameter Name="size" Type="int" Mode="In" />
+          <Parameter Name="onlyNews" Type="bit" Mode="In" />
+        </Function>
+        <Function Name="FullTextSearchRecordCount" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="searchString" Type="nvarchar" Mode="In" />
+          <Parameter Name="onlyNews" Type="bit" Mode="In" />
+        </Function>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DalModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="DalDb" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="DocumentCategories" EntityType="DalModel.DocumentCategory" />
+          <EntitySet Name="Documents" EntityType="DalModel.Document" />
+          <EntitySet Name="Files" EntityType="DalModel.File" />
+          <EntitySet Name="PhotoGalleries" EntityType="DalModel.PhotoGallery" />
+          <EntitySet Name="PhotoGalleriesFiles" EntityType="DalModel.PhotoGalleriesFile" />
+          <EntitySet Name="Users" EntityType="DalModel.User" />
+          <AssociationSet Name="FK_DOCUMENT_USERS" Association="DalModel.FK_DOCUMENT_USERS">
+            <End Role="User" EntitySet="Users" />
+            <End Role="Document" EntitySet="Documents" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DOCUMENTS_FILES" Association="DalModel.FK_DOCUMENTS_FILES">
+            <End Role="File" EntitySet="Files" />
+            <End Role="Document" EntitySet="Documents" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FILES_FILES" Association="DalModel.FK_FILES_FILES">
+            <End Role="File" EntitySet="Files" />
+            <End Role="File1" EntitySet="Files" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PHOTOGALLERIES_FILES_FILE" Association="DalModel.FK_PHOTOGALLERIES_FILES_FILE">
+            <End Role="File" EntitySet="Files" />
+            <End Role="PhotoGalleriesFile" EntitySet="PhotoGalleriesFiles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PHOTOGALLERIES_FILES_THUMBNAIL" Association="DalModel.FK_PHOTOGALLERIES_FILES_THUMBNAIL">
+            <End Role="File" EntitySet="Files" />
+            <End Role="PhotoGalleriesFile" EntitySet="PhotoGalleriesFiles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PHOTOGAL_REFERENCE_USERS" Association="DalModel.FK_PHOTOGAL_REFERENCE_USERS">
+            <End Role="User" EntitySet="Users" />
+            <End Role="PhotoGallery" EntitySet="PhotoGalleries" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PHOTOGALLERIES_PHOTOGALLERIESFILES" Association="DalModel.FK_PHOTOGALLERIES_PHOTOGALLERIESFILES">
+            <End Role="PhotoGallery" EntitySet="PhotoGalleries" />
+            <End Role="PhotoGalleriesFile" EntitySet="PhotoGalleriesFiles" />
+          </AssociationSet>
+          <EntitySet Name="DocumentTypes" EntityType="DalModel.DocumentType" />
+          <AssociationSet Name="FK_DOCUMENT_DOCUMENTTYPES" Association="DalModel.FK_DOCUMENT_DOCUMENTTYPES">
+            <End Role="DocumentType" EntitySet="DocumentTypes" />
+            <End Role="Document" EntitySet="Documents" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FILES_USERS" Association="DalModel.FK_FILES_USERS">
+            <End Role="User" EntitySet="Users" />
+            <End Role="File" EntitySet="Files" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PHOTOGALLERIES_FILES" Association="DalModel.FK_PHOTOGALLERIES_FILES">
+            <End Role="File" EntitySet="Files" />
+            <End Role="PhotoGallery" EntitySet="PhotoGalleries" />
+          </AssociationSet>
+          <AssociationSet Name="DocumentsDocumentCategories" Association="DalModel.DocumentsDocumentCategories">
+            <End Role="DocumentCategory" EntitySet="DocumentCategories" />
+            <End Role="Document" EntitySet="Documents" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DOCUMENTCATEGORIES_DOCUMENTCATEGORIES" Association="DalModel.FK_DOCUMENTCATEGORIES_DOCUMENTCATEGORIES">
+            <End Role="DocumentCategory" EntitySet="DocumentCategories" />
+            <End Role="DocumentCategory1" EntitySet="DocumentCategories" />
+          </AssociationSet>
+          <FunctionImport Name="FullTextSearch" ReturnType="Collection(DalModel.FullTextSearchResult)">
+            <Parameter Name="searchString" Mode="In" Type="String" />
+            <Parameter Name="orderBy" Mode="In" Type="String" />
+            <Parameter Name="skip" Mode="In" Type="Int32" />
+            <Parameter Name="size" Mode="In" Type="Int32" />
+            <Parameter Name="onlyNews" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="FullTextSearchRecordCount" ReturnType="Collection(Int32)">
+            <Parameter Name="searchString" Mode="In" Type="String" />
+            <Parameter Name="onlyNews" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <EntitySet Name="StaticContents" EntityType="DalModel.StaticContent" />
+          <EntitySet Name="NewsCategories" EntityType="DalModel.NewsCategory" />
+          <EntitySet Name="News" EntityType="DalModel.News" />
+          <AssociationSet Name="FK_NEWS_FILES_IMAGE" Association="DalModel.FK_NEWS_FILES_IMAGE">
+            <End Role="File" EntitySet="Files" />
+            <End Role="News" EntitySet="News" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NEWS_FILES_THUMBNAIL" Association="DalModel.FK_NEWS_FILES_THUMBNAIL">
+            <End Role="File" EntitySet="Files" />
+            <End Role="News" EntitySet="News" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NEWS_NEWSCATEGORIES" Association="DalModel.FK_NEWS_NEWSCATEGORIES">
+            <End Role="NewsCategory" EntitySet="NewsCategories" />
+            <End Role="News" EntitySet="News" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NEWS_PHOTOGALLERIES" Association="DalModel.FK_NEWS_PHOTOGALLERIES">
+            <End Role="PhotoGallery" EntitySet="PhotoGalleries" />
+            <End Role="News" EntitySet="News" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NEWS_USERS" Association="DalModel.FK_NEWS_USERS">
+            <End Role="User" EntitySet="Users" />
+            <End Role="News" EntitySet="News" />
+          </AssociationSet>
+          <EntitySet Name="DependentOrganizations" EntityType="DalModel.DependentOrganization" />
+          <AssociationSet Name="FK_NEWS_DEPENDENTORGANISATION" Association="DalModel.FK_NEWS_DEPENDENTORGANISATION">
+            <End Role="DependentOrganization" EntitySet="DependentOrganizations" />
+            <End Role="News" EntitySet="News" />
+          </AssociationSet>
+          </EntityContainer>
+        <EntityType Name="DocumentCategory">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="512" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Code" Nullable="true" MaxLength="600" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Documents" Relationship="DalModel.DocumentsDocumentCategories" FromRole="DocumentCategory" ToRole="Document" />
+          <Property Type="Int32" Name="Order" />
+          <Property Type="Boolean" Name="ShowDocTypeFilter" Nullable="false" />
+          <Property Type="Int32" Name="ParentId" />
+          <NavigationProperty Name="ChildCategories" Relationship="DalModel.FK_DOCUMENTCATEGORIES_DOCUMENTCATEGORIES" FromRole="DocumentCategory" ToRole="DocumentCategory1" />
+          <NavigationProperty Name="ParentCategory" Relationship="DalModel.FK_DOCUMENTCATEGORIES_DOCUMENTCATEGORIES" FromRole="DocumentCategory1" ToRole="DocumentCategory" />
+          <Property Type="String" Name="Description" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="StaticPageUrl" MaxLength="1024" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Document">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="DateTime" Name="CreateDate" Nullable="false" Precision="3" />
+          <Property Type="DateTime" Name="UpdateDate" Nullable="false" Precision="3" />
+          <Property Type="String" Name="Name" MaxLength="4000" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Number" MaxLength="64" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="DocumentDate" Precision="3" />
+          <Property Type="Boolean" Name="IsPublished" Nullable="false" />
+          <Property Type="DateTime" Name="PublishDate" Precision="3" />
+          <Property Type="Int32" Name="FileId" />
+          <Property Type="Int32" Name="AuthorId" Nullable="false" />
+          <NavigationProperty Name="User" Relationship="DalModel.FK_DOCUMENT_USERS" FromRole="Document" ToRole="User" />
+          <NavigationProperty Name="File" Relationship="DalModel.FK_DOCUMENTS_FILES" FromRole="Document" ToRole="File" />
+          <Property Type="Int32" Name="TypeId" />
+          <NavigationProperty Name="DocumentType" Relationship="DalModel.FK_DOCUMENT_DOCUMENTTYPES" FromRole="Document" ToRole="DocumentType" />
+          <Property Type="Boolean" Name="IsDeleted" Nullable="false" />
+          <NavigationProperty Name="DocumentCategories" Relationship="DalModel.DocumentsDocumentCategories" FromRole="Document" ToRole="DocumentCategory" />
+          <Property Type="DateTime" Name="RevisionDate" Precision="3" />
+          <Property Type="String" Name="RevisionNumber" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="RealDocumentDate" annotation:StoreGeneratedPattern="Computed" Precision="3" />
+          <Property Type="Boolean" Name="IsExpired" Nullable="false" />
+        </EntityType>
+        <EntityType Name="File">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="DateTime" Name="CreateDate" Nullable="false" Precision="3" />
+          <Property Type="DateTime" Name="UpdateDate" Nullable="false" Precision="3" />
+          <Property Type="String" Name="OriginalName" Nullable="false" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Type="Int64" Name="Size" />
+          <Property Type="String" Name="MimeType" MaxLength="512" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Description" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ContainerId" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="NameInStorage" Nullable="false" MaxLength="2048" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="ParentId" />
+          <NavigationProperty Name="Thumbnails" Relationship="DalModel.FK_FILES_FILES" FromRole="File" ToRole="File1" />
+          <NavigationProperty Name="ParentFile" Relationship="DalModel.FK_FILES_FILES" FromRole="File1" ToRole="File" />
+          <Property Type="Int32" Name="AuthorId" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PhotoGallery">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="DateTime" Name="CreateDate" Nullable="false" Precision="3" />
+          <Property Type="DateTime" Name="UpdateDate" Nullable="false" Precision="3" />
+          <Property Type="String" Name="Name" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="IsPublished" Nullable="false" />
+          <Property Type="DateTime" Name="PublishDate" Precision="3" />
+          <Property Type="Int32" Name="AuthorId" Nullable="false" />
+          <Property Type="String" Name="ContainerId" MaxLength="128" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="User" Relationship="DalModel.FK_PHOTOGAL_REFERENCE_USERS" FromRole="PhotoGallery" ToRole="User" />
+          <NavigationProperty Name="Images" Relationship="DalModel.FK_PHOTOGALLERIES_PHOTOGALLERIESFILES" FromRole="PhotoGallery" ToRole="PhotoGalleriesFile" />
+          <Property Type="Int32" Name="MainImageId" />
+          <NavigationProperty Name="MainImage" Relationship="DalModel.FK_PHOTOGALLERIES_FILES" FromRole="PhotoGallery" ToRole="File" />
+          <Property Type="Boolean" Name="IsDeleted" Nullable="false" />
+          <NavigationProperty Name="News" Relationship="DalModel.FK_NEWS_PHOTOGALLERIES" FromRole="PhotoGallery" ToRole="News" />
+        </EntityType>
+        <EntityType Name="PhotoGalleriesFile">
+          <Key>
+            <PropertyRef Name="PhotoGalleryId" />
+            <PropertyRef Name="FileId" />
+          </Key>
+          <Property Type="Int32" Name="PhotoGalleryId" Nullable="false" />
+          <Property Type="Int32" Name="FileId" Nullable="false" />
+          <Property Type="Int32" Name="ThumbnailId" />
+          <NavigationProperty Name="Image" Relationship="DalModel.FK_PHOTOGALLERIES_FILES_FILE" FromRole="PhotoGalleriesFile" ToRole="File" />
+          <NavigationProperty Name="Thumbnail" Relationship="DalModel.FK_PHOTOGALLERIES_FILES_THUMBNAIL" FromRole="PhotoGalleriesFile" ToRole="File" />
+          <NavigationProperty Name="PhotoGallery" Relationship="DalModel.FK_PHOTOGALLERIES_PHOTOGALLERIESFILES" FromRole="PhotoGalleriesFile" ToRole="PhotoGallery" />
+          <Property Type="String" Name="PhotoName" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="OrderNumber" Nullable="true" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="DateTime" Name="CreateDate" Nullable="false" Precision="3" />
+          <Property Type="DateTime" Name="UpdateDate" Nullable="false" Precision="3" />
+          <Property Type="String" Name="Login" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Name" MaxLength="512" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="IsAdministrationEmployee" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_DOCUMENT_USERS">
+          <End Type="DalModel.User" Role="User" Multiplicity="1" />
+          <End Type="DalModel.Document" Role="Document" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Document">
+              <PropertyRef Name="AuthorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DOCUMENTS_FILES">
+          <End Type="DalModel.File" Role="File" Multiplicity="0..1" />
+          <End Type="DalModel.Document" Role="Document" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="File">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Document">
+              <PropertyRef Name="FileId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FILES_FILES">
+          <End Type="DalModel.File" Role="File" Multiplicity="0..1" />
+          <End Type="DalModel.File" Role="File1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="File">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="File1">
+              <PropertyRef Name="ParentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PHOTOGALLERIES_FILES_FILE">
+          <End Type="DalModel.File" Role="File" Multiplicity="1" />
+          <End Type="DalModel.PhotoGalleriesFile" Role="PhotoGalleriesFile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="File">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PhotoGalleriesFile">
+              <PropertyRef Name="FileId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PHOTOGALLERIES_FILES_THUMBNAIL">
+          <End Type="DalModel.File" Role="File" Multiplicity="0..1" />
+          <End Type="DalModel.PhotoGalleriesFile" Role="PhotoGalleriesFile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="File">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PhotoGalleriesFile">
+              <PropertyRef Name="ThumbnailId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PHOTOGAL_REFERENCE_USERS">
+          <End Type="DalModel.User" Role="User" Multiplicity="1" />
+          <End Type="DalModel.PhotoGallery" Role="PhotoGallery" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PhotoGallery">
+              <PropertyRef Name="AuthorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PHOTOGALLERIES_PHOTOGALLERIESFILES">
+          <End Type="DalModel.PhotoGallery" Role="PhotoGallery" Multiplicity="1" />
+          <End Type="DalModel.PhotoGalleriesFile" Role="PhotoGalleriesFile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PhotoGallery">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PhotoGalleriesFile">
+              <PropertyRef Name="PhotoGalleryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="DocumentType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Code" Nullable="false" MaxLength="300" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <Association Name="FK_DOCUMENT_DOCUMENTTYPES">
+          <End Type="DalModel.DocumentType" Role="DocumentType" Multiplicity="0..1" />
+          <End Type="DalModel.Document" Role="Document" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DocumentType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Document">
+              <PropertyRef Name="TypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FILES_USERS">
+          <End Type="DalModel.User" Role="User" Multiplicity="1" />
+          <End Type="DalModel.File" Role="File" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="File">
+              <PropertyRef Name="AuthorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PHOTOGALLERIES_FILES">
+          <End Type="DalModel.File" Role="File" Multiplicity="0..1" />
+          <End Type="DalModel.PhotoGallery" Role="PhotoGallery" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="File">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PhotoGallery">
+              <PropertyRef Name="MainImageId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="DocumentsDocumentCategories">
+          <End Type="DalModel.DocumentCategory" Role="DocumentCategory" Multiplicity="*" />
+          <End Type="DalModel.Document" Role="Document" Multiplicity="*" />
+        </Association>
+        <Association Name="FK_DOCUMENTCATEGORIES_DOCUMENTCATEGORIES">
+          <End Type="DalModel.DocumentCategory" Role="DocumentCategory" Multiplicity="0..1" />
+          <End Type="DalModel.DocumentCategory" Role="DocumentCategory1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DocumentCategory">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DocumentCategory1">
+              <PropertyRef Name="ParentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <ComplexType Name="FullTextSearchResult" >
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="Int32" Name="PreviewId" Nullable="true" />
+          <Property Type="String" Name="Title" Nullable="true" />
+          <Property Type="String" Name="Content" Nullable="true" />
+          <Property Type="DalModel.ContentType" Name="EntityType" Nullable="false" />
+          <Property Type="DateTime" Name="Date" Nullable="true" />
+          <Property Type="Int32" Name="Rank" Nullable="false" />
+          <Property Type="String" Name="SectionName" Nullable="true" />
+          <Property Type="String" Name="SectionUrl" Nullable="true" />
+        </ComplexType>
+        <EnumType Name="ContentType">
+          <Member Name="News" />
+          <Member Name="Document" />
+          <Member Name="PhotoGallery" />
+          <Member Name="StaticContent" />
+        </EnumType>
+        <EnumType Name="SearchOrderColumn">
+          <Member Name="Rank" />
+          <Member Name="Date" />
+        </EnumType>
+        <EntityType Name="StaticContent">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="1024" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Content" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Url" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="NewsCategory">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Title" Nullable="false" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="RecentTitle" Nullable="false" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Url" Nullable="false" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="IsUse" Nullable="false" />
+          <Property Type="Int32" Name="NewsPageSize" Nullable="false" />
+          <Property Type="Int32" Name="RecentNewsPageSize" Nullable="false" />
+          <Property Type="String" Name="ShortTitle" MaxLength="2000" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="News">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="DateTime" Name="CreateDate" Nullable="false" Precision="3" />
+          <Property Type="DateTime" Name="UpdateDate" Nullable="false" Precision="3" />
+          <Property Type="String" Name="Title" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Announcement" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Text" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="IsPublished" Nullable="false" />
+          <Property Type="DateTime" Name="PublishDate" Precision="3" />
+          <Property Type="Int32" Name="ImageId" />
+          <Property Type="Int32" Name="AuthorId" Nullable="false" />
+          <Property Type="Int32" Name="ThumbnailId" />
+          <Property Type="Int32" Name="GalleryId" />
+          <Property Type="Boolean" Name="IsDeleted" Nullable="false" />
+          <Property Type="String" Name="ContainerId" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="IsGalleryVisibleInGalleries" Nullable="false" />
+          <Property Type="DateTime" Name="PublishDateTo" Precision="3" />
+          <Property Type="Int32" Name="CategoryId" />
+          <NavigationProperty Name="Image" Relationship="DalModel.FK_NEWS_FILES_IMAGE" FromRole="News" ToRole="File" />
+          <NavigationProperty Name="Thumbnail" Relationship="DalModel.FK_NEWS_FILES_THUMBNAIL" FromRole="News" ToRole="File" />
+          <NavigationProperty Name="NewsCategory" Relationship="DalModel.FK_NEWS_NEWSCATEGORIES" FromRole="News" ToRole="NewsCategory" />
+          <NavigationProperty Name="PhotoGallery" Relationship="DalModel.FK_NEWS_PHOTOGALLERIES" FromRole="News" ToRole="PhotoGallery" />
+          <NavigationProperty Name="User" Relationship="DalModel.FK_NEWS_USERS" FromRole="News" ToRole="User" />
+          <Property Type="Boolean" Name="IsPoster" Nullable="false" />
+          <Property Type="Int32" Name="DependentOrganizationId" />
+          <NavigationProperty Name="DependentOrganization" Relationship="DalModel.FK_NEWS_DEPENDENTORGANISATION" FromRole="News" ToRole="DependentOrganization" />
+          <Property Type="Boolean" Name="IsImportant" Nullable="false" />
+          <Property Type="Boolean" Name="IsPublishInNews" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_NEWS_FILES_IMAGE">
+          <End Type="DalModel.File" Role="File" Multiplicity="0..1" />
+          <End Type="DalModel.News" Role="News" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="File">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="News">
+              <PropertyRef Name="ImageId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NEWS_FILES_THUMBNAIL">
+          <End Type="DalModel.File" Role="File" Multiplicity="0..1" />
+          <End Type="DalModel.News" Role="News" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="File">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="News">
+              <PropertyRef Name="ThumbnailId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NEWS_NEWSCATEGORIES">
+          <End Type="DalModel.NewsCategory" Role="NewsCategory" Multiplicity="0..1" />
+          <End Type="DalModel.News" Role="News" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NewsCategory">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="News">
+              <PropertyRef Name="CategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NEWS_PHOTOGALLERIES">
+          <End Type="DalModel.PhotoGallery" Role="PhotoGallery" Multiplicity="0..1" />
+          <End Type="DalModel.News" Role="News" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PhotoGallery">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="News">
+              <PropertyRef Name="GalleryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NEWS_USERS">
+          <End Type="DalModel.User" Role="User" Multiplicity="1" />
+          <End Type="DalModel.News" Role="News" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="News">
+              <PropertyRef Name="AuthorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="DependentOrganization">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="String" Name="Code" Nullable="false" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Title" Nullable="false" MaxLength="2000" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <Association Name="FK_NEWS_DEPENDENTORGANISATION">
+          <End Type="DalModel.DependentOrganization" Role="DependentOrganization" Multiplicity="0..1" />
+          <End Type="DalModel.News" Role="News" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DependentOrganization">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="News">
+              <PropertyRef Name="DependentOrganizationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DalModelStoreContainer" CdmEntityContainer="DalDb">
+          <EntitySetMapping Name="DocumentCategories">
+            <EntityTypeMapping TypeName="DalModel.DocumentCategory">
+              <MappingFragment StoreEntitySet="DocumentCategories">
+                <ScalarProperty Name="StaticPageUrl" ColumnName="StaticPageUrl" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="ParentId" ColumnName="ParentId" />
+                <ScalarProperty Name="ShowDocTypeFilter" ColumnName="ShowDocTypeFilter" />
+                <ScalarProperty Name="Order" ColumnName="Order" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Documents">
+            <EntityTypeMapping TypeName="DalModel.Document">
+              <MappingFragment StoreEntitySet="Documents">
+                <ScalarProperty Name="IsExpired" ColumnName="IsExpired" />
+                <ScalarProperty Name="RealDocumentDate" ColumnName="RealDocumentDate" />
+                <ScalarProperty Name="RevisionNumber" ColumnName="RevisionNumber" />
+                <ScalarProperty Name="RevisionDate" ColumnName="RevisionDate" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="TypeId" ColumnName="TypeId" />
+                <ScalarProperty Name="AuthorId" ColumnName="AuthorId" />
+                <ScalarProperty Name="FileId" ColumnName="FileId" />
+                <ScalarProperty Name="PublishDate" ColumnName="PublishDate" />
+                <ScalarProperty Name="IsPublished" ColumnName="IsPublished" />
+                <ScalarProperty Name="DocumentDate" ColumnName="DocumentDate" />
+                <ScalarProperty Name="Number" ColumnName="Number" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Files">
+            <EntityTypeMapping TypeName="DalModel.File">
+              <MappingFragment StoreEntitySet="Files">
+                <ScalarProperty Name="AuthorId" ColumnName="AuthorId" />
+                <ScalarProperty Name="ParentId" ColumnName="ParentId" />
+                <ScalarProperty Name="NameInStorage" ColumnName="NameInStorage" />
+                <ScalarProperty Name="ContainerId" ColumnName="ContainerId" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="MimeType" ColumnName="MimeType" />
+                <ScalarProperty Name="Size" ColumnName="Size" />
+                <ScalarProperty Name="OriginalName" ColumnName="OriginalName" />
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PhotoGalleries">
+            <EntityTypeMapping TypeName="DalModel.PhotoGallery">
+              <MappingFragment StoreEntitySet="PhotoGalleries">
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="MainImageId" ColumnName="MainImageId" />
+                <ScalarProperty Name="ContainerId" ColumnName="ContainerId" />
+                <ScalarProperty Name="AuthorId" ColumnName="AuthorId" />
+                <ScalarProperty Name="PublishDate" ColumnName="PublishDate" />
+                <ScalarProperty Name="IsPublished" ColumnName="IsPublished" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PhotoGalleriesFiles">
+            <EntityTypeMapping TypeName="DalModel.PhotoGalleriesFile">
+              <MappingFragment StoreEntitySet="PhotoGalleriesFiles">
+                <ScalarProperty Name="OrderNumber" ColumnName="OrderNumber" />
+                <ScalarProperty Name="PhotoName" ColumnName="PhotoName" />
+                <ScalarProperty Name="ThumbnailId" ColumnName="ThumbnailId" />
+                <ScalarProperty Name="FileId" ColumnName="FileId" />
+                <ScalarProperty Name="PhotoGalleryId" ColumnName="PhotoGalleryId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="DalModel.User">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="IsAdministrationEmployee" ColumnName="IsAdministrationEmployee" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Login" ColumnName="Login" />
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DocumentTypes">
+            <EntityTypeMapping TypeName="DalModel.DocumentType">
+              <MappingFragment StoreEntitySet="DocumentTypes">
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="DocumentsDocumentCategories" TypeName="DalModel.DocumentsDocumentCategories" StoreEntitySet="DocumentsDocumentCategories">
+            <EndProperty Name="Document">
+              <ScalarProperty Name="Id" ColumnName="DocumentId" />
+            </EndProperty>
+            <EndProperty Name="DocumentCategory">
+              <ScalarProperty Name="Id" ColumnName="DocumentCategoryId" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <EntitySetMapping Name="StaticContents">
+            <EntityTypeMapping TypeName="DalModel.StaticContent">
+              <MappingFragment StoreEntitySet="StaticContent">
+                <ScalarProperty Name="Url" ColumnName="Url" />
+                <ScalarProperty Name="Content" ColumnName="Content" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NewsCategories">
+            <EntityTypeMapping TypeName="DalModel.NewsCategory">
+              <MappingFragment StoreEntitySet="NewsCategories">
+                <ScalarProperty Name="ShortTitle" ColumnName="ShortTitle" />
+                <ScalarProperty Name="RecentNewsPageSize" ColumnName="RecentNewsPageSize" />
+                <ScalarProperty Name="NewsPageSize" ColumnName="NewsPageSize" />
+                <ScalarProperty Name="IsUse" ColumnName="IsUse" />
+                <ScalarProperty Name="Url" ColumnName="Url" />
+                <ScalarProperty Name="RecentTitle" ColumnName="RecentTitle" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="News">
+            <EntityTypeMapping TypeName="DalModel.News">
+              <MappingFragment StoreEntitySet="News">
+                <ScalarProperty Name="IsPublishInNews" ColumnName="IsPublishInNews" />
+                <ScalarProperty Name="IsImportant" ColumnName="IsImportant" />
+                <ScalarProperty Name="DependentOrganizationId" ColumnName="DependentOrganizationId" />
+                <ScalarProperty Name="IsPoster" ColumnName="IsPoster" />
+                <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+                <ScalarProperty Name="PublishDateTo" ColumnName="PublishDateTo" />
+                <ScalarProperty Name="IsGalleryVisibleInGalleries" ColumnName="IsGalleryVisibleInGalleries" />
+                <ScalarProperty Name="ContainerId" ColumnName="ContainerId" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="GalleryId" ColumnName="GalleryId" />
+                <ScalarProperty Name="ThumbnailId" ColumnName="ThumbnailId" />
+                <ScalarProperty Name="AuthorId" ColumnName="AuthorId" />
+                <ScalarProperty Name="ImageId" ColumnName="ImageId" />
+                <ScalarProperty Name="PublishDate" ColumnName="PublishDate" />
+                <ScalarProperty Name="IsPublished" ColumnName="IsPublished" />
+                <ScalarProperty Name="Text" ColumnName="Text" />
+                <ScalarProperty Name="Announcement" ColumnName="Announcement" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="FullTextSearch" FunctionName="DalModel.Store.FullTextSearch" >
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DalModel.FullTextSearchResult" />
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="FullTextSearchRecordCount" FunctionName="DalModel.Store.FullTextSearchRecordCount" />
+          <EntitySetMapping Name="DependentOrganizations">
+            <EntityTypeMapping TypeName="DalModel.DependentOrganization">
+              <MappingFragment StoreEntitySet="DependentOrganizations">
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
