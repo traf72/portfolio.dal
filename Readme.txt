@@ -1,3 +1,5 @@
-Проект представляет из себя фрагмент слоя доступа к данным, реализованный на EntityFramework (Database First).
-При наличие на компьютере .NET Framework 4.5 и доступа в интернет проект должен собраться без ошибок, подтянув недостающие сборки через NuGet.
-Весь код написан лично.
+## The project is a fragment of a data access layer based on EntityFramework (Database First).
+
+You can simply run this project from Visual Studio.
+
+All code is written personally.
